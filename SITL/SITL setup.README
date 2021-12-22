@@ -1,0 +1,22 @@
+
+## update system
+sudo apt-get update
+
+## install git
+sudo apt-get git
+
+## Clone Ardupilot
+git clone https://github.com/Ardupilot/ardupilot.git
+cd ardupilot
+git submodule update --init --recursive
+
+## install developing environment
+cd Tools/environment_install
+cd ./install-prereqs-ubuntu.sh -y
+
+## copy sim_vehicle.py to aircraft folder
+cp ~/ardupilot/Tools/autotest/sim_vehicle.py ~/ardupilot/ArduCopter
+
+## initialize  
+sim_vehicle.py -w
+
